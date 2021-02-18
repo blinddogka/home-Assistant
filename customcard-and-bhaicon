@@ -1,0 +1,19 @@
+type: 'custom:button-card'
+state:
+ - value: on
+   color: green
+   styles:
+     icon:
+      - animation:
+        - blink 5s linear infinite
+        - rotating 2s ease infinite
+
+#bha iconok
+      bha:ceiling
+      bha:ceiling-lamp-plafond
+      bha:ceiling-round
+      bha:chandelier
+      bha:floor-lamp
+      bha:floor-lamp-dual
+
+      bha:led-strip
