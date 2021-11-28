@@ -1,0 +1,6 @@
+switchmode1 6
+
+
+rule1 on switch1#state=2 do power toggle endon on switch1#state=3 do publish cmnd/"NÉV"/POWER TOGGLE endon
+
+Rule1 1
