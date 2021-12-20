@@ -1,0 +1,14 @@
+
+SetOption73 1
+SetOption32 8
+
+rule1 on button1#state=11 do publish zigbee2mqtt/IkeaBulb/set {
+  "brightness": 50,
+  "color_temp": 381,
+  "state": "ON"
+} endon on button1#state=12 do publish cmnd/BadRLEDLight/color 188,188 endon on button1#state=10 do publish zigbee2mqtt/OfficeLight/set {
+  "brightness": 50,
+  "color_temp": 381,
+  "state": "ON"
+} endon on button1#state=3 do publish zigbee2mqtt/OfficeLight/set/state OFF endon on button1#state=3 do publish zigbee2mqtt/IkeaBulb/set/state OFF endon on button1#state=3 do publish cmnd/BadRLEDLight/POWER0 OFF endon
+
