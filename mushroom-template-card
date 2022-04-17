@@ -1,0 +1,45 @@
+#mushroom-template-card
+
+# Number of light couter
+
+# templet
+
+{{ states.light
+          | rejectattr ('attributes.entity_id', 'defined')
+          | selectattr ('state', 'eq', 'on')
+          | list | count }}
+
+
+#### Count number of lights on /Sensors/
+
+- platform: template
+  sensors:
+    number_lights_on:
+      friendly_name: "Number Lights On"
+      value_template: >-
+        {{ states.light
+                  | rejectattr ('attributes.entity_id', 'defined')
+                  | selectattr ('state', 'eq', 'on')
+                  | list | count }}
+      icon_template: mdi:lightbulb-group
+
+#icon
+{% if states('sensor.number_lights_on') | int == 0%}
+ mdi:lightbulb-group-off
+{%else%}
+ mdi:lightbulb-group
+{%endif%}
+
+#icon color
+{% if states('sensor.number_lights_on') | int == 0%}
+ grey
+{%else%}
+ amber
+{%endif%}
+
+#primary informacion
+{% if states('sensor.number_lights_on') | int == 0%}
+ All lights are off
+{%else%}
+ {{ states('sensor.number_lights_on') }} lights on
+{%endif%}
